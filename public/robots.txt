@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /contact-token
+Disallow: /contact-submit
+Disallow: /contact-conversion
+Sitemap: https://rgesol.com/sitemap.xml

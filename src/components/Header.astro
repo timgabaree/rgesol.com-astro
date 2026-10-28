@@ -1,0 +1,87 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <a
+      class="site-brand"
+      href="/"
+      aria-label="RGE Solutions home">
+      <img
+        src="/media/rgesolutions-logo-192x192.webp"
+        alt="RGE Solutions"
+        width="192"
+        height="192" />
+    </a>
+    <button
+      type="button"
+      class="site-nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-navigation">
+      <span class="visually-hidden">
+        Toggle navigation
+      </span>
+      <span
+        class="site-nav-toggle-icon"
+        aria-hidden="true">
+      </span>
+    </button>
+    <nav
+      id="primary-navigation"
+      class="site-nav"
+      aria-label="Primary">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/" aria-current={Astro.url.pathname === "/" ? "page" : undefined}
+            >
+            Home
+          </a>
+        </li>
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/#work"
+            >
+            Work
+          </a>
+        </li>
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/#services"
+            >
+            Services
+          </a>
+        </li>
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/#approach"
+            >
+            Approach
+          </a>
+        </li>
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/#proof"
+            >
+            Proof
+          </a>
+        </li>
+        <li class="site-nav-item">
+          <a
+            class="site-nav-link"
+            href="/contact"
+            >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <a
+      class="site-header-cta"
+      href="/contact">
+      Start a Conversation
+    </a>
+  </div>
+</header>

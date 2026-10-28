@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+const pages=[['/','Home'],['/about','About RGE Solutions'],['/contact','Contact'],['/privacy','Privacy policy']];
+const images=[
+ ['rgesolutions-logo-1200x1200-transparent.webp','RGE Solutions logo'],
+ ['rgesolutions-og-descriptive-1200x630.webp','RGE Solutions technology advisory and execution'],
+ ['profile-pic-tim-gabaree-900x1200.webp','Tim Gabaree, founder and managing director'],
+ ['signal-engineering-clarity-822x500.webp','Engineering clarity'],
+ ['signal-cloud-and-infrastructure-400x400.webp','Cloud and infrastructure'],
+ ['signal-cybersecurity-and-risk-400x400.webp','Cybersecurity and risk'],
+ ['signal-vendor-and-spend-control-400x400.webp','Vendor and spend control'],
+ ['signal-ai-and-data-readiness-400x400.webp','AI and data readiness'],
+];
+---
+<Layout page="sitemap">
+ <main id="main-content" class="section">
+  <h1>Sitemap</h1><p>Explore RGE Solutions pages and media.</p>
+  <h2>Pages</h2><ul>{pages.map(([href,label])=><li><a href={href}>{label}</a></li>)}</ul>
+  <h2>Downloads</h2><p><a href="/rgesolutions.vcf">Save RGE Solutions contact information</a></p>
+  <h2>Images</h2><div class="sitemap-gallery">{images.map(([file,label])=>
+   <a href={'/media/'+file}><img src={'/media/'+file} alt="" width="240" height="180" loading="lazy"/><span>{label}</span></a>
+  )}</div>
+  <p><a href="/sitemap.xml">XML sitemap for search engines</a></p>
+ </main>
+</Layout>

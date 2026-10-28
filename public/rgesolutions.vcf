@@ -1,0 +1,24 @@
+BEGIN:VCARD
+VERSION:3.0
+
+N:Gabaree;Tim;;;
+FN:Tim Gabaree
+
+ORG:RGE Solutions
+TITLE:Managing Director
+
+ADR;TYPE=WORK:;;;Springfield;VA;;
+
+TEL;TYPE=WORK,VOICE,PREF:+1-571-210-0586
+
+EMAIL;TYPE=WORK;PREF:timgabaree@rgesol.com
+
+URL:https://rgesol.com
+URL:https://www.linkedin.com/company/rgesolutions
+URL:https://www.linkedin.com/in/timgabaree
+
+NOTE:Founder-led technology advisory helping organizations improve enterprise performance through technology strategy, governance, AI strategy, cybersecurity, and execution.
+
+PHOTO;VALUE=URI:https://rgesol.com/media/rgesolutions-logo-192x192.png
+
+END:VCARD

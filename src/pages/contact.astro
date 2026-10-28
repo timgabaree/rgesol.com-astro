@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout page="contact">
+<main id="main-content">
+  <section class="contact-page-hero">
+    <div class="contact-page-heading">
+      <p class="eyebrow">
+        Start a Conversation
+      </p>
+      <h1>
+        Let’s talk about the challenge in front of you.
+      </h1>
+      <p class="contact-page-lede">
+        Tell us a little about your organization, priorities, and the
+        technology challenge you are working through. We will review your
+        message and respond promptly.
+      </p>
+    </div>
+  </section>
+  <section class="section contact-form-section">
+    <div class="contact-page-grid">
+      <div class="contact-form-card">
+        <div class="contact-form-intro">
+          <p class="section-kicker">
+            Your Inquiry
+          </p>
+          <h2>
+            How can RGE Solutions help?
+          </h2>
+          <p>
+            Complete the form below to begin the conversation. Fields marked
+            with an asterisk are required.
+          </p>
+        </div>
+        <form
+          class="contact-form"
+          action="/contact-submit"
+          method="post"
+          accept-charset="UTF-8"
+                    aria-describedby="contact-required-fields"
+          >
+          <input
+            type="hidden"
+            name="csrf_token" id="csrf_token" value="" />
+          <p
+            id="contact-required-fields"
+            class="visually-hidden">
+            Fields marked with an asterisk are required.
+          </p>
+          <div
+            class="form-honeypot"
+            aria-hidden="true">
+            <label for="website">
+              Leave this field empty
+            </label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off" />
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">
+                Name
+                <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                maxlength="100"
+                required
+                aria-required="true" />
+            </div>
+            <div class="form-field">
+              <label for="organization">
+                Organization
+              </label>
+              <input
+                type="text"
+                id="organization"
+                name="organization"
+                autocomplete="organization"
+                maxlength="150" />
+            </div>
+            <div class="form-field">
+              <label for="email">
+                Email
+                <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                maxlength="254"
+                required
+                aria-required="true" />
+            </div>
+            <div class="form-field">
+              <label for="phone">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="40" />
+            </div>
+            <div class="form-field form-field-full">
+              <label for="topic">
+                What would you like to discuss?
+                <span aria-hidden="true">*</span>
+              </label>
+              <select
+                id="topic"
+                name="topic"
+                required
+                aria-required="true">
+                <option
+                  value=""
+                  selected
+                  disabled>
+                  Select a topic
+                </option>
+                <option value="technology-operating-model">
+                  Technology Operating Model                </option>
+                <option value="infrastructure-cloud-modernization">
+                  Infrastructure and Cloud Modernization                </option>
+                <option value="cybersecurity-compliance-readiness">
+                  Cybersecurity and Compliance Readiness                </option>
+                <option value="vendor-spend-rationalization">
+                  Vendor and Spend Rationalization                </option>
+                <option value="ai-data-automation-advisory">
+                  AI, Data, and Automation Advisory                </option>
+                <option value="program-recovery-execution-support">
+                  Program Recovery and Execution Support                </option>
+                <option value="executive-advisory">
+                  Executive Advisory                </option>
+                <option value="other">
+                  Other                </option>
+              </select>
+            </div>
+            <div class="form-field form-field-full">
+              <label for="message">
+                Tell us about your challenge
+                <span aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="8"
+                maxlength="5000"
+                required
+                aria-required="true"
+                placeholder="Briefly describe your organization, priorities, timeline, and the challenge you are working through."></textarea>
+            </div>
+          </div>
+          <div class="form-submit-area">
+            <button
+              type="submit"
+              class="button primary contact-submit-button">
+              Send Your Message
+            </button>
+            <p class="form-privacy-note">
+              By submitting this form, you agree that RGE Solutions may use
+              the information provided to respond to your inquiry. Please do
+              not submit confidential or highly sensitive information.
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer">
+                View the Privacy Policy.
+                <span class="visually-hidden">
+                  Opens in a new tab.
+                </span>
+              </a>
+            </p>
+          </div>
+        <noscript><p>JavaScript is needed for the secure form. You can email <a href="mailto:tim@rgesol.com">tim@rgesol.com</a> instead.</p></noscript>
+</form>
+      </div>
+      <aside
+        class="contact-direct-card"
+        aria-labelledby="direct-contact-heading">
+        <p class="section-kicker">
+          Direct Contact
+        </p>
+        <h2 id="direct-contact-heading">
+          Prefer another way to connect?
+        </h2>
+        <p class="contact-direct-intro">
+          Reach RGE Solutions directly by email, phone, or LinkedIn.
+        </p>
+        <div class="contact-direct-links">
+          <a
+            href="mailto:timgabaree@rgesol.com"
+            class="executive-contact-link">
+            <span
+              class="contact-icon"
+              aria-hidden="true">
+              ✉
+            </span>
+            <span>
+              <small>Email</small>
+              timgabaree@rgesol.com            </span>
+          </a>
+          <a
+            href="tel:+15712100586"
+            class="executive-contact-link">
+            <span
+              class="contact-icon"
+              aria-hidden="true">
+              ☎
+            </span>
+            <span>
+              <small>Phone</small>
+              571.210.0586            </span>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/rgesolutions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="executive-contact-link"
+            aria-label="RGE Solutions on LinkedIn — opens in a new tab">
+            <span
+              class="contact-icon contact-icon-linkedin"
+              aria-hidden="true">
+              in
+            </span>
+            <span>
+              <small>LinkedIn</small>
+              RGE Solutions
+            </span>
+          </a>
+        </div>
+        <div class="contact-page-qr">
+          <a
+            href="/rgesolutions.vcf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Save RGE Solutions contact information">
+            <img
+              src="/media/rgesolutions-vcf-qr-code-200x200.webp"
+              alt="QR code to save RGE Solutions contact information"
+              width="200"
+              height="200"
+              loading="lazy"
+              decoding="async" />
+          </a>
+          <div>
+            <strong>
+              Save RGE Solutions
+            </strong>
+            <p>
+              Scan the QR code or select it to add the contact information
+              to your device.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+</Layout>
