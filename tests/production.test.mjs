@@ -7,7 +7,7 @@ function environment(overrides = {}) {
   return {
     ENVIRONMENT: 'production', PRODUCTION_ENABLED: 'true', CONTACT_MODE: 'resend',
     RESEND_API_KEY: 'synthetic-test-key', CONTACT_FROM: 'website@forms.rgesol.com',
-    CONTACT_TO: 'tim@rgesol.com',
+    CONTACT_TO: 'timgabaree@rgesol.com',
     ASSETS: { fetch: async () => new Response('<h1>Page</h1>', { headers: { 'Content-Type': 'text/html' } }) },
     CONTACT_STATE: { idFromName() { throw new Error('Unexpected form state access'); } },
     ...overrides,
@@ -89,7 +89,7 @@ test('production email uses the fixed recipient and has no staging subject prefi
     assert.equal(url, 'https://api.resend.com/emails');
     const payload = JSON.parse(options.body);
     assert.equal(payload.subject, 'Website inquiry: Other');
-    assert.deepEqual(payload.to, ['tim@rgesol.com']);
+    assert.deepEqual(payload.to, ['timgabaree@rgesol.com']);
     assert.equal(payload.reply_to, 'synthetic@example.invalid');
     assert.equal(payload.from, 'website@forms.rgesol.com');
     assert.equal(payload.html, undefined);

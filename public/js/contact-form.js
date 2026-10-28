@@ -13,7 +13,7 @@
     'invalid-email': 'Please enter a valid email address.',
     'security-error': 'Your form session could not be verified. Please reload this page and try again.',
     'rate-limited': 'Please wait a few minutes before submitting another message.',
-    'send-error': 'The message could not be sent. Please email tim@rgesol.com directly.',
+    'send-error': 'The message could not be sent. Please email timgabaree@rgesol.com directly.',
     'test-success': 'Staging test passed. Your message was validated, but no email was sent or saved.',
   };
 
@@ -79,7 +79,7 @@
     .catch(() => {
       form.removeAttribute('aria-busy');
       showStatus(
-        'The secure form is temporarily unavailable. Please email tim@rgesol.com directly.',
+        'The secure form is temporarily unavailable. Please email timgabaree@rgesol.com directly.',
       );
     });
 })();

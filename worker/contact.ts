@@ -3,6 +3,7 @@ import { persistMailIssue } from './monitoring.ts';
 
 export interface Env {
   ASSETS: Fetcher;
+  DELIVERY_STATUS?: DurableObjectNamespace;
   CONTACT_STATE: DurableObjectNamespace;
   ENVIRONMENT: 'local' | 'staging' | 'production';
   CONTACT_MODE: 'dry-run' | 'resend';
