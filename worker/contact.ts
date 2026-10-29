@@ -16,12 +16,12 @@ export interface Env {
 }
 
 export const TOPICS: Record<string, string> = {
-  "technology-operating-model": "Technology Operating Model",
-  "infrastructure-cloud-modernization": "Infrastructure and Cloud Modernization",
-  "cybersecurity-compliance-readiness": "Cybersecurity and Compliance Readiness",
-  "vendor-spend-rationalization": "Vendor and Spend Rationalization",
-  "ai-data-automation-advisory": "AI, Data, and Automation Advisory",
-  "program-recovery-execution-support": "Program Recovery and Execution Support",
+  "technology-operating-model": "Technology Teams & Operations",
+  "infrastructure-cloud-modernization": "Infrastructure & Cloud",
+  "cybersecurity-compliance-readiness": "Cybersecurity & Compliance",
+  "vendor-spend-rationalization": "Vendors & Technology Costs",
+  "ai-data-automation-advisory": "AI, Data & Automation",
+  "program-recovery-execution-support": "Program Recovery & Delivery",
   "executive-advisory": "Executive Advisory",
   "other": "Other"
 };

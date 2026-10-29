@@ -1,5 +1,27 @@
 # RGE Solutions — Astro
 
+## Plain-language production update — October 28, 2026
+
+Home, About and Contact now use the same practical, plain-language style as
+Tim's résumé and personal site. About is complete, service names and contact
+topic labels agree, and search/social descriptions reflect the revised copy.
+The homepage correctly identifies **$25M in projected savings**, not $25M+ in
+realized savings. Results are explicitly attributed to Tim's leadership roles.
+
+Published directly with owner approval as production version
+`59f2a97b-fa60-496f-9765-6dbcbe4923fd`. Clean Astro/TypeScript checks, 37 unit tests,
+325 production site checks and 118 read-only live checks passed. Desktop and
+320/390-pixel browser previews showed no horizontal overflow; the live About page
+was visually verified. These are not new PageSpeed or physical-phone results.
+
+Design styles, images, links, contact addresses, form topic IDs, email safeguards,
+analytics controls, monitoring, staging, GoDaddy and all DNS remain unchanged.
+Only the displayed topic names used in the form and email labels changed; no
+contact email was sent. The owner reviewed the live update and approved committing
+and pushing the source, tests and notes to this Astro repository. Git publication
+does not trigger another deployment. See [MIGRATION.md](MIGRATION.md) for release
+and rollback evidence.
+
 ## Monitoring — October 28, 2026
 
 UptimeRobot `804464221` checks `https://rgesol.com/` every minute (GET, 2xx only, no redirects), with alerts to `tim@timgabaree.com`, certificate error checks, and expiry reminders at 30/14/7/0 days. The existing Solo 10 plan is sufficient; no subscription upgrade was made.

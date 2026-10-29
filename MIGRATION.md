@@ -9,11 +9,42 @@
 - Staging sending-only credential securely configured. Protected Cloudflare contact endpoint test delivered to `tim@rgesol.com` at 20:42 UTC (Resend ID `01a1843f-f2ed-7142-9032-f026502b5ef7`). Inbox confirmation remains pending.
 - The unused production key that appeared in a tool response was permanently revoked with Tim's approval; it had no activity and was never installed. Its replacement (`a523691f-b290-4ed7-b46b-e2744275829b`) has sending-only access restricted to `forms.rgesol.com`, stored in Cloudflare secrets and macOS Keychain. Temporary plaintext handoff removed; no secret values in Git.
 - Private production-credential test delivered to `tim@rgesol.com` at 22:03 UTC / 5:03 p.m. Central (Resend ID `01a1848a-0284-741d-a13a-67cbccf68785`). This used the local Astro `sendMail` adapter and the production credential, not the public production Worker. Resend confirms Delivered, and Tim confirmed receipt.
-- Latest protected staging version: `6e387af1-906a-420b-aa2a-02391d9e5ce7`. Live production version: `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`, with `PRODUCTION_ENABLED=true` and both custom domains attached. October 28 footer-style release (`1be868d`) makes Privacy choices match adjacent links; only the CSS asset changed. Staging, monitoring, routes, DNS, and GoDaddy were unchanged.
+- Latest protected staging version: `6e387af1-906a-420b-aa2a-02391d9e5ce7`. Live production version: `59f2a97b-fa60-496f-9765-6dbcbe4923fd`, with `PRODUCTION_ENABLED=true` and both custom domains attached. The plain-language release below supersedes footer-style version `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`. The footer fix (`1be868d`) remains included. Staging, monitoring, routes, DNS, and GoDaddy were unchanged.
 - Tim's final launch instruction makes `timgabaree@rgesol.com` the public address, both environments' form recipient, fallback address, and live-test recipient. Historical pre-launch tests above went to the previously approved `tim@rgesol.com`; their records are retained accurately. The verified authenticated sender remains `website@forms.rgesol.com`; mailbox DNS was not changed for this address update.
 - One live browser form test, `RGE Cloudflare Live Cutover Test`, reached `/thank-you`. Resend confirms Delivered to `timgabaree@rgesol.com` at 22:17 UTC, ID `01a18497-1660-7e77-9514-60f1c0fba628`. User inbox confirmation is pending.
 
 ## Verification
+
+### Plain-language production release — October 28, 2026
+
+- Owner approved direct production publication for review. Updated Home, About,
+  Contact, shared navigation labels, search/social/structured descriptions and
+  contact topic display names. Completed About using supported existing experience.
+- Corrected `$25M+` / unqualified cost savings to `$25M` / projected savings
+  identified. The section now attributes the results to Tim's leadership roles,
+  rather than implying that all results came from RGE client engagements.
+- Existing styles, images, URLs, classes, IDs and form values/actions are unchanged.
+  Contact Worker edits change only the six topic label strings, not validation,
+  recipients, sending behavior, state, security or monitoring.
+- Zero Astro/TypeScript diagnostics; 37 unit tests and 325 build/site checks pass.
+  Added regressions for financial qualification, completed About and metadata,
+  plus consistent service/form/email labels with stable topic IDs.
+- 118 read-only live checks pass: six page bodies exactly match the production
+  build, security/indexing headers, canonical and legacy redirects, private-file
+  404s, CSS/scripts/vCard/XML sitemap and all 28 media hashes, staging 401,
+  production workers.dev 404 and both shared email-monitor probes 200.
+- Desktop Home/About and 320/390-pixel Home/About/Contact layouts reviewed; no
+  horizontal overflow. Live About visually verified. Browser emulation only;
+  no new physical-phone or PageSpeed measurement.
+- Version upload followed by 100% version deployment preserved existing hostname
+  bindings. Previous production version: `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`.
+  Current production version: `59f2a97b-fa60-496f-9765-6dbcbe4923fd`.
+- No contact email, secret update, monitoring change, staging deployment,
+  GoDaddy change or DNS change. After reviewing the live release, the owner
+  approved committing and pushing the source, tests and notes to the RGE Astro
+  repository. This source publication does not redeploy production.
+
+### Earlier release and launch evidence
 
 - October 28 footer release: clean type checks, 34 unit tests, production build, and 325 site checks passed. Live footer font/color/spacing match neighboring links; Enter opens privacy choices and Escape closes them with visible keyboard focus restored. Six live page/sitemap responses and security headers passed; served CSS hash matches the production build and the www redirect preserves path/query. No email was sent.
 - Astro/TypeScript check: 0 errors, 0 warnings, 0 hints.
@@ -23,7 +54,7 @@
 - All six main pages fit 320, 768 and 1440-pixel viewports without horizontal overflow; one h1 each, no detected broken images. Mobile navigation opens with Enter, closes with Escape and restores button focus. Skip link and footer privacy controls work from the keyboard. Required fields focus the first invalid field; a keyboard-submitted local form completed in no-email mode.
 - Mobile home, contact and privacy layouts and desktop image gallery were visually reviewed. Browser review recorded no console errors. The vCard browser download matched the served asset. The QR payload was decoded as `https://rgesol.com/rgesolutions.vcf`; its linked card's malformed address field and missing logo URL were corrected in Astro only.
 - Separate staging and production builds pass; deploy assets reject PHP and private source/configuration.
-- Normalized homepage, about and thank-you text match the local PHP source. Contact and privacy include intentional migration updates. Live PHP email obfuscation accounts for source/live text differences.
+- At migration, normalized homepage, about and thank-you text matched the local PHP source. The approved plain-language release below intentionally supersedes Home and About parity; contact and privacy also contain intentional updates. `scripts/verify-content.mjs` is a historical migration comparison, not a current release gate.
 - Gold-text contrast issues identified in the first audit were corrected without layout changes. Repeat local production-build Lighthouse: mobile **96/100/100/100**, desktop **100/100/100/100** (Performance/Accessibility/Best Practices/SEO). Lighthouse 13.5.0; mobile Moto G Power/Slow 4G. Full reports retained in ignored `.local/lighthouse-mobile.json` and `.local/lighthouse-desktop.json`. These are laboratory preview results, not live PageSpeed or field measurements; analytics was hostname-gated off on localhost.
 - Existing Cloudflare Web Analytics property `62dfae33485f4655916fb34e84ea1c84` is configured for rgesol.com with automatic injection excluding EU visitors. This setting was left unchanged. On the live contact page, the injected Cloudflare beacon is present; Google `G-G94X7J9MCF` is absent before consent and appears after Allow cookies. No duplicate beacon was added. Reporting-dashboard event/visit verification remains follow-up, not established by script presence alone.
 - Real staging contact delivery verified in Resend, not merely inferred from the success page.
