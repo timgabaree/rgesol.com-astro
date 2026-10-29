@@ -2240,7 +2240,15 @@ textarea:focus-visible {
 .scheduling-open { overflow: hidden; }
 
 @media(max-width:600px){.analytics-choices{right:12px;bottom:12px;width:calc(100% - 24px)}}
-.privacy-settings { border:0; background:none; font:inherit; cursor:pointer; }
+.privacy-settings {
+  border: 0;
+  padding: 0;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
 .sitemap-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin:24px 0; }
 .sitemap-gallery a { display:grid; gap:8px; }
 .sitemap-gallery img { width:100%; height:180px; object-fit:contain; }
