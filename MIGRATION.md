@@ -98,4 +98,4 @@ Tim explicitly approved the six service-alias replacements, minimum TLS 1.2, ape
 - Verify event/visit reports in Google Analytics and Cloudflare, preserving consent and the EU exclusion.
 - Submit/inspect the sitemap in Google Search Console and allow time for indexing.
 - Launch and monitoring source/notes are included in the approved GitHub update; a Git push does not deploy automatically.
-- Coordinated monitoring enabled October 28; see README. Homepage/certificate monitor `804464221` and shared RGE/Carrie failure monitor `804464267` alert `tim@timgabaree.com`. Keep shared GoDaddy hosting available; do not cancel or delete it.
+- Coordinated monitoring was reorganized October 29 on Solo 50 annual; see README for the five RGE checks and separate shared-service health check. Alerts go to `tim@timgabaree.com` per Tim's clarification; Gmail remains the account login. Old homepage monitor `804464221` is paused with history preserved. Keep shared GoDaddy hosting available; do not cancel or delete it.
