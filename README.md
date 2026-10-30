@@ -1,5 +1,7 @@
 # RGE Solutions — Astro
 
+**Website update buttons:** [Start here — numbered WebStorm workflow](WEBSITE-WORKFLOW/00-START-HERE.md). In WebStorm, open the run-configuration dropdown and choose **WEBSITE WORKFLOW**. Setup alone does not commit, push, upload or publish.
+
 ## Plain-language production update — October 28, 2026
 
 Home, About and Contact now use the same practical, plain-language style as

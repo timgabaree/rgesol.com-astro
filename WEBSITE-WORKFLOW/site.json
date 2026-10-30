@@ -1,0 +1,36 @@
+{
+  "domain": "rgesol.com",
+  "branch": "main",
+  "worker": "rgesol-com-astro-production",
+  "checks": [
+    [
+      "run",
+      "check"
+    ],
+    [
+      "test"
+    ],
+    [
+      "run",
+      "build:production"
+    ],
+    [
+      "run",
+      "test:site"
+    ],
+    [
+      "run",
+      "test:integration"
+    ]
+  ],
+  "liveChecks": [],
+  "livePages": [
+    "/",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/sitemap"
+  ],
+  "repository": "rgesol.com-astro",
+  "account": "7459bd2037d71d23fd030e3542b9df61"
+}
