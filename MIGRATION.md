@@ -9,7 +9,7 @@
 - Staging sending-only credential securely configured. Protected Cloudflare contact endpoint test delivered to `tim@rgesol.com` at 20:42 UTC (Resend ID `01a1843f-f2ed-7142-9032-f026502b5ef7`). Inbox confirmation remains pending.
 - The unused production key that appeared in a tool response was permanently revoked with Tim's approval; it had no activity and was never installed. Its replacement (`a523691f-b290-4ed7-b46b-e2744275829b`) has sending-only access restricted to `forms.rgesol.com`, stored in Cloudflare secrets and macOS Keychain. Temporary plaintext handoff removed; no secret values in Git.
 - Private production-credential test delivered to `tim@rgesol.com` at 22:03 UTC / 5:03 p.m. Central (Resend ID `01a1848a-0284-741d-a13a-67cbccf68785`). This used the local Astro `sendMail` adapter and the production credential, not the public production Worker. Resend confirms Delivered, and Tim confirmed receipt.
-- Latest protected staging version: `6e387af1-906a-420b-aa2a-02391d9e5ce7`. Live production version: `59f2a97b-fa60-496f-9765-6dbcbe4923fd`, with `PRODUCTION_ENABLED=true` and both custom domains attached. The plain-language release below supersedes footer-style version `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`. The footer fix (`1be868d`) remains included. Staging, monitoring, routes, DNS, and GoDaddy were unchanged.
+- Latest protected staging version: `6e387af1-906a-420b-aa2a-02391d9e5ce7`. Live production version: `59f2a97b-fa60-496f-9765-6dbcbe4923fd`, with `PRODUCTION_ENABLED=true` and both custom domains attached. The plain-language release below supersedes footer-style version `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`. The footer fix (`1be868d`) remains included. Staging, routes, DNS, and GoDaddy were unchanged.
 - Tim's final launch instruction makes `timgabaree@rgesol.com` the public address, both environments' form recipient, fallback address, and live-test recipient. Historical pre-launch tests above went to the previously approved `tim@rgesol.com`; their records are retained accurately. The verified authenticated sender remains `website@forms.rgesol.com`; mailbox DNS was not changed for this address update.
 - One live browser form test, `RGE Cloudflare Live Cutover Test`, reached `/thank-you`. Resend confirms Delivered to `timgabaree@rgesol.com` at 22:17 UTC, ID `01a18497-1660-7e77-9514-60f1c0fba628`. User inbox confirmation is pending.
 
@@ -25,21 +25,21 @@
   rather than implying that all results came from RGE client engagements.
 - Existing styles, images, URLs, classes, IDs and form values/actions are unchanged.
   Contact Worker edits change only the six topic label strings, not validation,
-  recipients, sending behavior, state, security or monitoring.
+  recipients, sending behavior, state or security.
 - Zero Astro/TypeScript diagnostics; 37 unit tests and 325 build/site checks pass.
   Added regressions for financial qualification, completed About and metadata,
   plus consistent service/form/email labels with stable topic IDs.
 - 118 read-only live checks pass: six page bodies exactly match the production
   build, security/indexing headers, canonical and legacy redirects, private-file
   404s, CSS/scripts/vCard/XML sitemap and all 28 media hashes, staging 401,
-  production workers.dev 404 and both shared email-monitor probes 200.
+  production workers.dev 404.
 - Desktop Home/About and 320/390-pixel Home/About/Contact layouts reviewed; no
   horizontal overflow. Live About visually verified. Browser emulation only;
   no new physical-phone or PageSpeed measurement.
 - Version upload followed by 100% version deployment preserved existing hostname
   bindings. Previous production version: `7794bf6f-6ed1-4924-9ffe-a9c0e00b7849`.
   Current production version: `59f2a97b-fa60-496f-9765-6dbcbe4923fd`.
-- No contact email, secret update, monitoring change, staging deployment,
+- No contact email, secret update, staging deployment,
   GoDaddy change or DNS change. After reviewing the live release, the owner
   approved committing and pushing the source, tests and notes to the RGE Astro
   repository. This source publication does not redeploy production.
@@ -97,5 +97,5 @@ Tim explicitly approved the six service-alias replacements, minimum TLS 1.2, ape
 - Confirm the live test in Tim's inbox; Resend delivery is already verified.
 - Verify event/visit reports in Google Analytics and Cloudflare, preserving consent and the EU exclusion.
 - Submit/inspect the sitemap in Google Search Console and allow time for indexing.
-- Launch and monitoring source/notes are included in the approved GitHub update; a Git push does not deploy automatically.
-- Coordinated monitoring was reorganized October 29 on Solo 50 annual; see README for the five RGE checks and separate shared-service health check. Alerts go to `tim@timgabaree.com` per Tim's clarification; Gmail remains the account login. Old homepage monitor `804464221` is paused with history preserved. Keep shared GoDaddy hosting available; do not cancel or delete it.
+- Launch source/notes are included in the approved GitHub update; a Git push does not deploy automatically.
+- Keep shared GoDaddy hosting available; do not cancel or delete it.
