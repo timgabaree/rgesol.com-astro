@@ -1,86 +1,102 @@
 # RGE Solutions — Astro
 
-**Website update buttons:** [Start here — numbered WebStorm workflow](WEBSITE-WORKFLOW/00-START-HERE.md). In WebStorm, open the run-configuration dropdown and choose **WEBSITE WORKFLOW**. Setup alone does not commit, push, upload or publish.
+Business website presenting technology consulting, leadership, and operational improvement services, with an About page and contact form.
 
-## Plain-language production update — October 28, 2026
+Live site: [rgesol.com](https://rgesol.com/).
 
-Home, About and Contact now use the same practical, plain-language style as
-Tim's résumé and personal site. About is complete, service names and contact
-topic labels agree, and search/social descriptions reflect the revised copy.
-The homepage correctly identifies **$25M in projected savings**, not $25M+ in
-realized savings. Results are explicitly attributed to Tim's leadership roles.
+## How it is built
 
-Published directly with owner approval as production version
-`59f2a97b-fa60-496f-9765-6dbcbe4923fd`. Clean Astro/TypeScript checks, 37 unit tests,
-325 production site checks and 118 read-only live checks passed. Desktop and
-320/390-pixel browser previews showed no horizontal overflow; the live About page
-was visually verified. These are not new PageSpeed or physical-phone results.
+Astro generates static HTML and assets. A TypeScript Cloudflare Worker serves those assets and handles redirects, security headers, and protected staging. Small browser scripts provide interactive behavior; there is no PHP runtime in the deployed site.
 
-Design styles, images, links, contact addresses, form topic IDs, email safeguards,
-analytics controls, staging, GoDaddy and all DNS remain unchanged.
-Only the displayed topic names used in the form and email labels changed; no
-contact email was sent. The owner reviewed the live update and approved committing
-and pushing the source, tests and notes to this Astro repository. Git publication
-does not trigger another deployment. See [MIGRATION.md](MIGRATION.md) for release
-and rollback evidence.
+Shared navigation and privacy controls, a downloadable contact card, structured page metadata, and HTML/XML sitemaps with image entries.
 
-Separate Astro migration of rgesol.com, launched on Cloudflare on 2026-10-28 with Tim's approval. The original PHP project and GoDaddy shared hosting remain available for rollback. See `MIGRATION.md` for launch evidence and remaining follow-up.
+The toolchain uses Node.js (version pinned in `.nvmrc`), npm, TypeScript, and Wrangler. `package-lock.json` pins dependency versions.
 
-Private repository: https://github.com/timgabaree/rgesol.com-astro
+## Project structure
 
-## Development
+- `src/pages/` — service overview, About, Contact, privacy, and sitemap routes.
+- `src/layouts/`, `src/components/` — shared page shell and interface components.
+- `src/data/page-meta.json` — page metadata.
+- `public/` — styles, browser scripts, images, and downloads.
+- `worker/` — access control, redirects, contact validation, and persistent form-security state.
+- `scripts/`, `tests/` — build preparation and automated checks.
 
-Use Node from `.nvmrc`, then:
+Add pages using the shared layout, then update navigation, metadata, sitemaps, and regression tests. Keep contact-topic labels consistent between the page and email handler.
+
+## Local development
+
+Install the Node version in `.nvmrc`, then run:
 
 ```sh
+nvm use
 npm ci
-npm run check
-npm test
+npm run dev
+```
+
+Astro's development server previews page content. To test Worker routing and form handling locally:
+
+```sh
 npm run build:staging
-npm run test:integration
 npm run preview
 ```
 
-The Worker preview at http://127.0.0.1:8788 uses no-email dry-run mode. `npm run dev` runs the Astro page preview only; contact endpoints require the Worker preview. `npm run build:production` writes separate `dist-production` assets.
+Use the local URL printed by each server. The command above uses no-email mode; a successful local form test does not send a message.
 
-After a production build, `npm run test:site` checks internal links, image assets, structured metadata, sitemap targets and the downloadable contact card.
-
-## Structure
-
-- `src/pages`: page content, HTML/image sitemap, XSLT-free XML sitemap.
-- `src/components`, `src/layouts`: shared navigation, footer, privacy choices.
-- `public`: public assets only; no PHP, hosting configuration, credentials, or archives.
-- `worker`: access control, security headers, contact validation, persistent abuse protection and Resend adapter.
-- `tests`, `scripts`: automated verification and deployment preparation.
-
-## Deployment boundaries
-
-Staging: https://rgesol-com-astro-staging.timgabaree-com-astro.workers.dev
-
-Staging requires Basic authentication before pages, downloads, or form endpoints. Its password is in macOS Keychain under `rgesol.com-astro-staging-basic-auth` (account `review`), not Git. Staging is noindex and does not load Google Analytics.
-
-Production: `rgesol-com-astro-production`, serving `rgesol.com` and `www.rgesol.com` with `PRODUCTION_ENABLED=true`. The Worker redirects HTTP and www to `https://rgesol.com`, preserving paths and queries. Its workers.dev endpoint and preview URLs remain disabled. Use the versioned release workflow below only when publication is authorized, preserving existing hostname bindings.
-
-`npm run deploy:staging` checks, tests, builds and deploys staging only. Production deployment is intentionally explicit:
+## Validation
 
 ```sh
+npm run check
+npm test
 npm run build:production
-npx wrangler versions upload --config wrangler.production.jsonc
-# Use the version ID returned by the upload:
-npx wrangler versions deploy <version-id>@100 --config wrangler.production.jsonc
+npm run test:site
 ```
 
-The checked-in production configuration is live: deploying a version updates the public site. Upload alone does not shift traffic. Do not run trigger changes as part of a code-only release. A Git push is not a deployment.
+`npm run test:integration` checks the local Worker. `npm run site:verify` checks deployed pages and assets without submitting a contact message.
 
-## Email and analytics
+## Cloudflare deployment
 
-Cloudflare secrets: `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO`; staging additionally uses `STAGING_USER`, `STAGING_PASSWORD`. Never place their values in this repository or logs.
+Staging and production use separate Workers:
 
-Public contact address, form recipient in both environments, and launch-test recipient: `timgabaree@rgesol.com`, per Tim's final launch instruction. The authenticated sender remains `RGE Solutions Website <website@forms.rgesol.com>` so it uses the verified isolated sender domain without changing mailbox DNS. Resend requires encrypted delivery. Each environment uses a separate sending-only key restricted to that domain. Provider acceptance and delivery are distinct checks.
+- `wrangler.jsonc` — staging configuration; assets built to `dist/`.
+- `wrangler.production.jsonc` — production configuration; assets built to `dist-production/`.
 
-Google Analytics property `G-G94X7J9MCF` loads only after opt-in on the production hostname. The small notice is dismissible without granting consent; footer privacy settings allow changing the choice. Advertising signals are disabled. Form contents are not analytics events. Existing Cloudflare Web Analytics uses automatic injection, excluding EU visitors; this setting is unchanged. Verify its beacon and reporting after launch rather than adding a duplicate manual snippet.
+Staging uses HTTP Basic authentication with `STAGING_USER` and `STAGING_PASSWORD` stored as Cloudflare secrets. It is excluded from indexing and does not load Google Analytics. After configuring credentials and infrastructure, `npm run deploy:staging` builds and publishes staging.
 
-See [MIGRATION.md](MIGRATION.md) for evidence, remaining gates and rollback scope.
+Production redirects HTTP and `www` to the HTTPS apex. Public production `workers.dev` and version-preview URLs are disabled. Apex and www use Cloudflare Custom Domains.
+
+For an **existing, configured production Worker**, run validation, commit and push the source, then:
+
+```sh
+npx wrangler versions upload --config wrangler.production.jsonc
+# Replace VERSION_ID with the version returned by the upload.
+npx wrangler versions deploy VERSION_ID@100 --config wrangler.production.jsonc
+```
+
+Upload does not shift traffic; the deployment command does. Verify the published pages, redirects, assets, and privacy controls afterward. Git pushes do not deploy the website. Keep the previous version available for a reviewed rollback.
+
+The optional [WebStorm workflow](WEBSITE-WORKFLOW/00-START-HERE.md) provides separate check, commit, push, upload, publish, and verification actions.
+
+## Contact email
+
+The Worker validates submissions, applies CSRF/replay and rate-limit protection, and sends through Resend. Cloudflare Durable Objects hold temporary form-security state. Configure `RESEND_API_KEY`, `CONTACT_FROM`, and `CONTACT_TO` as secrets in each environment.
+
+Use separate sending-only keys scoped to a verified sender domain. Keep delivery encrypted and open/click tracking disabled. The recipient is server-controlled; visitor email is used only for Reply-To. Provider acceptance or a thank-you page does not prove inbox delivery. Use a controlled end-to-end test when validating email.
+
+## Privacy and analytics
+
+Google Analytics loads only after opt-in on production. Visitors can reopen privacy choices from the footer; dismissal is not consent. Cloudflare Web Analytics is configured separately at the edge; avoid adding a duplicate beacon. Contact message contents are not sent to analytics.
+
+## Adapting this project
+
+This is a site-specific implementation, not an account-neutral starter:
+
+1. Replace content, branding, metadata, domain references, analytics identifiers, and privacy/contact details.
+2. Set your own Cloudflare account, Worker names, hostnames, routes, and environment variables. Keep production closed until setup and checks are complete.
+3. Provision the resources and bindings referenced by the Worker configurations in your own account, including Durable Objects and any cross-Worker dependencies. Configure secrets outside Git.
+4. Update host-specific tests and verification scripts. The optional WebStorm helpers also enforce repository ownership, branch, and account identity; adapt both `WEBSITE-WORKFLOW/site.json` and the guards in `workflow.mjs` before reuse.
+5. Establish staging, then production infrastructure and routing separately. The version-upload sequence above is for subsequent releases, not a complete first-time provisioning procedure.
+
+Keep credentials, generated builds, archives, and local reports out of Git and public assets. Use only content and media you have permission to reuse. During a hosting migration, preserve unrelated sites and email DNS.
 
 ## Monitoring
 
