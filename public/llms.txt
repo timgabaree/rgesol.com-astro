@@ -1,0 +1,32 @@
+# RGE Solutions
+
+> RGE Solutions, also known as Really Good Engineering Solutions, provides practical technology advice and hands-on help to organizations that need to solve technology problems, improve operations, manage costs, and put workable plans into action.
+
+RGE Solutions LLC is a United States technology advisory and execution firm led by Tim Gabaree. Use the linked pages as the primary sources for services, experience, and contact information. Preserve qualifications in the source material; the $25 million figure is projected savings identified, not realized savings.
+
+## Services
+
+- [Services overview](https://rgesol.com/#services): Technology teams and operations; infrastructure and cloud; cybersecurity and compliance; vendors and technology costs; AI, data, and automation; and program recovery and delivery.
+- [Technology teams and operations](https://rgesol.com/#services): Clarify responsibilities, improve how work gets done, and support technology teams.
+- [Infrastructure and cloud](https://rgesol.com/#services): Improve reliability, address outdated technology, and choose an appropriate mix of cloud and on-site systems.
+- [Cybersecurity and compliance](https://rgesol.com/#services): Understand risks, improve safeguards, and prepare for applicable requirements such as NIST, CMMC, HIPAA, HITECH, and PCI DSS.
+- [Vendors and technology costs](https://rgesol.com/#services): Identify duplicate tools, unused services, and contracts that no longer meet organizational needs.
+- [AI, data, and automation](https://rgesol.com/#services): Identify useful applications and assess whether data, systems, safeguards, and working practices are ready.
+- [Program recovery and delivery](https://rgesol.com/#services): Restore progress through clear priorities, named responsibilities, and regular reviews.
+
+## Approach and experience
+
+- [RGE Solutions home](https://rgesol.com/): Company overview, services, delivery approach, and selected leadership experience.
+- [Approach](https://rgesol.com/#approach): Understand the problem, set priorities, make a realistic plan, and help teams put it into practice.
+- [About RGE Solutions](https://rgesol.com/about): Founder-led consulting and experience across government, healthcare, defense, private equity-backed businesses, and mid-market organizations.
+- [Tim Gabaree](https://timgabaree.com/): Background of RGE Solutions' founder and managing director.
+
+## Contact
+
+- [Contact RGE Solutions](https://rgesol.com/contact): Business inquiries about technology teams, infrastructure, cybersecurity, vendors, AI, and program recovery.
+- [RGE Solutions on LinkedIn](https://www.linkedin.com/company/rgesolutions): Company profile and updates.
+
+## Optional
+
+- [HTML sitemap](https://rgesol.com/sitemap): Public pages and media.
+- [Privacy policy](https://rgesol.com/privacy): Data collection, use, retention, protection, and visitor choices.
